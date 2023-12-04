@@ -1,4 +1,12 @@
-# A4
+# Nuisance Reporter
+
+Access nuisance reports submitted by the public. Users may view reported locations on a leaflet map or separate info page and add reports to a database. Admins may change the status of a report or delete a report with a specific password.        
+
+## Technologies used
+
+- Angular 17.03
+- Leaflet JS
+- Bootstrap 5.3.2
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
 
