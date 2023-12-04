@@ -1,6 +1,6 @@
 # Nuisance Reporter
 
-![Screenshot](src\assets\product.png)
+![image](src/assets/product.png)
 
 A nuisance report manager. Users may submit reports and view reported locations on a map or all details in a separate info page. Admins may change the status of a report or delete a report using a password.        
 
