@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<div class="container mt-5 w-25 mx-auto">
+    <div class="card border-dark">
+        <img class="card-img-top img-fluid" [src]="report?.image">
+        <div class="card-header">
+          <h1 class="card-title">Nuisance Report</h1>
+          <ul class="list-group list-unstyled">
+            <li>Reported: {{ report?.dateTime }}</li>
+            <li>Status: {{ report?.status }}</li>
+          </ul>          
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h5>Witness</h5>
+                <p>{{ report?.witness?.name }} ({{ report?.witness?.phone }})</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Villian</h5>
+                <p>{{ report?.villain }}</p>
+            </li>
+            <li class="list-group-item">
+                <h5>Location</h5>
+                <p>
+                    {{ report?.location?.name }}, &#40;{{ report?.location?.latitude }}, {{ report?.location?.longitude }}&#41;
+                </p>
+            </li>
+            <li class="list-group-item">
+                <h5>Info</h5>
+                <p *ngIf="report?.description == null||'';else other_description">N/A</p>
+                <ng-template #other_description><p>{{ report?.description }}</p></ng-template>
+            </li>
+        </ul>
+      </div>
+      <button class="btn btn-primary mt-2 mb-5" routerLink="">Return</button>
+</div>

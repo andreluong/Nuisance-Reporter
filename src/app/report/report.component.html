@@ -1,0 +1,13 @@
+<td>{{ report.location.name }}</td>
+<td>{{ report.villain }}</td>
+<td>{{ report.dateTime }}</td>
+<td align="center">
+    <button *ngIf="report.status == 'OPEN'" class="btn btn-primary" (click)="onStatusChange($event, report.id)">{{ report.status }}</button>
+    <button *ngIf="report.status == 'RESOLVED'" class="btn btn-success" (click)="onStatusChange($event, report.id)">{{ report.status }}</button>
+</td>
+<td align="center">
+    <button class="btn btn-info" (click)="onView()">Info</button>
+</td>
+<td align="center">
+    <button class="btn btn-danger" (click)="onDelete($event, report.id)">X</button>
+</td>

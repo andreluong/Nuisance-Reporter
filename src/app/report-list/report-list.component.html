@@ -1,0 +1,22 @@
+<div class="mt-1 w-50 mx-auto">
+    <button class="btn btn-primary col-12 mb-1" type="button" data-bs-toggle="collapse" data-bs-target="#form-container">Add New Report</button>
+    <div class="collapse mb-5" id="form-container">
+        <app-report-add-form (onAddReport)="addReport($event)"></app-report-add-form>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-responsive ">
+        <caption>count: {{ reports.length }}</caption>
+        <thead class="table-dark">
+            <tr>
+                <th app-table-header-toggle [reports]="this.reports" type="Location"></th>
+                <th app-table-header-toggle [reports]="this.reports" type="Villain"></th>
+                <th app-table-header-toggle [reports]="this.reports" type="Time Reported"></th>
+                <th scope="col">Status</th>
+                <th scope="col">Info</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr app-report *ngFor="let r of reports" [report]="r" (delete)="onReportDelete($event)" (changeStatus)="onReportChangeStatus($event)"></tr>
+        </tbody>
+    </table>
+</div>

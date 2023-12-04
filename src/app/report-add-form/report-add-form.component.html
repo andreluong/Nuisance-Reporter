@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-4 mx-auto w-100 row g-3">
+    <legend>Add Report</legend>
+    <div class="col-md-6">
+        <label for="input-witness-name">Witness Name*</label>
+        <input type="text" class="form-control" id="input-witness-name" placeholder="Name" formControlName="witnessName">
+        <small *ngIf="form.get('witnessName')?.errors?.['pattern']">Witness name must consist of only letters, spaces, periods, and dashes</small>
+        <small *ngIf="form.get('witnessName')?.errors?.['noSpaceOnFirstIndex']">Witness name can not start with a space</small>
+    </div>
+    <div class="col-md-6">
+        <label for="input-witness-phone">Witness Phone*</label>
+        <input type="tel" class="form-control" id="input-witness-phone" placeholder="Phone Number" formControlName="witnessPhone">
+        <small *ngIf="form.get('witnessPhone')?.errors?.['pattern']">Phone number must consist of only 10 numbers</small>
+    </div>
+    <div class="col-12">
+        <label for="input-villain">Villain*</label>
+        <input type="text" class="form-control" id="input-villain" placeholder="Name" formControlName="villain">
+        <small *ngIf="form.get('villain')?.errors?.['pattern']">Villain name must consist of alphanumerical characters, spaces, periods, and dashes</small>
+        <small *ngIf="form.get('villain')?.errors?.['noSpaceOnFirstIndex']">Villain name can not start with a space</small>
+    </div>
+    <div class="col-md-8">
+        <label for="input-loc-name">Location*</label>
+        <input type="text" list="locationNames" class="form-control" id="input-loc-name" placeholder="Name" formControlName="locName">
+        <small *ngIf="form.get('locName')?.errors?.['pattern']">Location name must consist of alphanumerical characters, spaces, periods, and dashes</small>
+        <small *ngIf="form.get('locName')?.errors?.['noSpaceOnFirstIndex']">Location name can not start with a space</small>
+        <datalist id="locationNames">
+            <option *ngFor="let l of locations" value={{l.name}}>
+        </datalist>    
+    </div>
+    <div class="col-md-2">
+        <label for="input-loc-lat">Latitude*</label>
+        <input type="text" class="form-control" id="input-loc-lat" formControlName="locLat" >
+        <small *ngIf="form.get('locLat')?.errors?.['min']">Location Latitude must be >= -90</small>
+        <small *ngIf="form.get('locLat')?.errors?.['max']">Location Latitude must be <= 90</small>
+        <small *ngIf="form.get('locLat')?.errors?.['pattern']">Location Latitude must be numerical and have a maximum of 6 decimal places</small>
+    </div>
+    <div class="col-md-2">
+        <label for="input-loc-long">Longitude*</label>
+        <input type="text" class="form-control" id="input-loc-long" formControlName="locLong" >
+        <small *ngIf="form.get('locLong')?.errors?.['min']">Location Latitude must be >= -180</small>
+        <small *ngIf="form.get('locLong')?.errors?.['max']">Location Latitude must be <= 180</small>
+        <small *ngIf="form.get('locLong')?.errors?.['pattern']">Location Latitude must be numerical and have a maximum of 6 decimal places</small>
+    </div>
+    <div class="col-12">
+        <label for="input-image">Image</label>
+        <input type="text" class="form-control" id="input-image" placeholder="Image URL" formControlName="imageUrl">
+    </div>
+    <div class="col-12">
+        <label for="input-description">Description</label>
+        <input type="text" class="form-control" id="input-description" placeholder="Details of the Incident" formControlName="description">
+        <small *ngIf="form.get('description')?.errors?.['maxLength']">Description must be <= 120 characters</small>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary me-2" [disabled]="!form.valid">Submit</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#form-container" routerLink="/">Cancel</button>
+    </div>
+</form>
