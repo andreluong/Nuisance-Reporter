@@ -1,14 +1,25 @@
 # Nuisance Reporter
 
-Access nuisance reports submitted by the public. Users may view reported locations on a leaflet map or separate info page and add reports to a database. Admins may change the status of a report or delete a report with a specific password.        
+![Screenshot](src\assets\product.png)
 
-## Technologies used
+A nuisance report manager. Users may submit reports and view reported locations on a map or all details in a separate info page. Admins may change the status of a report or delete a report using a password.        
 
-- Angular 17.03
-- Leaflet JS
-- Bootstrap 5.3.2
+## Frontend technologies used
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+- [Angular 17.0.3](https://angular.io/)
+- [Leaflet 1.9.4](https://leafletjs.com/)
+- [Bootstrap 5.3.2](https://getbootstrap.com/)
+
+## Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/andreluong/Nuisance-Reporter.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
 
 ## Development server
 
